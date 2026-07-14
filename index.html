@@ -135,6 +135,39 @@ section{padding:66px 0;}
   .node .pt{flex-shrink:0;} .spec-legend{justify-content:flex-start;}
 }
 
+/* ── HOW TO READ + NEED CHART (achado central) ── */
+.howread{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px;}
+@media(max-width:820px){.howread{grid-template-columns:1fr;}}
+.howread-item{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:17px 19px; box-shadow:var(--shadow);}
+.howread-item .hr-k{font-family:'Plus Jakarta Sans'; font-weight:700; font-size:13px; color:var(--blue); margin-bottom:6px;}
+.howread-item p{font-size:13px; color:var(--slate); line-height:1.5;}
+.needchart{background:var(--card); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:26px 30px 24px;}
+.need-legend{display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:12.5px; color:var(--slate); margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--line);}
+.need-legend i{font-style:normal; display:inline-flex; align-items:center; gap:7px;}
+.need-legend .sw{width:12px; height:12px; border-radius:4px; display:inline-block;}
+.sw-alta{background:linear-gradient(90deg,#3b82f6,var(--blue-deep));}
+.sw-media{background:#c7d7f9; border:1px solid var(--blue-line);}
+.need-row{display:grid; grid-template-columns:186px 148px 1fr 58px; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);}
+.need-row:last-of-type{border-bottom:none;}
+.need-name{font-family:'Plus Jakarta Sans'; font-weight:700; font-size:14px; color:var(--navy); display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+.need-pilot{font-size:9px; font-weight:800; letter-spacing:.08em; color:#fff; background:var(--blue); border-radius:5px; padding:2px 6px; white-space:nowrap;}
+.need-mat{font-size:10.5px; font-weight:600; color:var(--slate); background:var(--tint2); border-radius:6px; padding:3px 8px; white-space:nowrap; justify-self:start;}
+.need-track{position:relative; height:28px; background:var(--tint2); border-radius:8px; overflow:hidden;}
+.need-bar{position:absolute; left:0; top:0; height:100%; border-radius:8px; width:0; display:flex; align-items:center; padding-left:12px; transition:width 1s cubic-bezier(.2,.7,.2,1);}
+.in .need-bar{width:var(--w);}
+.need-bar.alta{background:linear-gradient(90deg,#3b82f6,var(--blue-deep));}
+.need-bar.media{background:linear-gradient(90deg,#b7c9f4,#9ab2ea);}
+.need-bar span{font-family:'Plus Jakarta Sans'; font-weight:700; font-size:11.5px; color:#fff; white-space:nowrap;}
+.need-score{justify-self:end; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:12.5px; border-radius:999px; padding:4px 10px; text-align:center; white-space:nowrap;}
+.need-score.r5{color:#0f9e75; background:var(--green-soft); border:1px solid var(--green-line);}
+.need-score.r4{color:var(--blue); background:var(--blue-soft); border:1px solid var(--blue-line);}
+.need-conclusion{margin-top:20px; padding:18px 22px; background:var(--blue-soft); border:1px solid var(--blue-line); border-radius:12px; font-size:15px; color:var(--navy); line-height:1.55; font-weight:500;}
+.need-conclusion b{color:var(--blue-700); font-weight:700;}
+@media(max-width:760px){
+  .need-row{grid-template-columns:1fr; gap:8px; padding:16px 0;}
+  .need-mat, .need-score{justify-self:start;}
+}
+
 /* ── FINDINGS GRID ── */
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
 @media(max-width:860px){.cards{grid-template-columns:1fr 1fr;}}
@@ -216,7 +249,7 @@ footer{background:var(--ink); color:#c7d0e0; padding:34px 0;}
 .method-item .mk{font-size:12.5px; color:var(--slate); margin-top:4px;}
 .method-note{margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted);}
 .method-flow{display:flex; align-items:stretch; flex-wrap:wrap; gap:10px; margin-top:22px; padding-top:20px; border-top:1px solid var(--line);}
-.mstep{display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px; flex:1; min-width:150px;}
+.mstep{display:flex; align-items:flex-start; gap:10px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; flex:1; min-width:150px;}
 .mstep-n{width:24px; height:24px; flex-shrink:0; border-radius:7px; background:var(--blue-soft); color:var(--blue); font-family:'Plus Jakarta Sans'; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center;}
 .mstep b{font-family:'Plus Jakarta Sans'; font-weight:600; font-size:13px; color:var(--navy); display:block; line-height:1.15;}
 .mstep i{font-style:normal; font-size:11px; color:var(--muted);}
@@ -258,7 +291,7 @@ footer{background:var(--ink); color:#c7d0e0; padding:34px 0;}
 
 /* ── HOW IT WORKS (reuse method-flow styles via .flow) ── */
 .flow{display:flex; align-items:stretch; flex-wrap:wrap; gap:10px; margin-top:26px;}
-.fstep{display:flex; align-items:center; gap:10px; background:var(--tint); border:1px solid var(--line); border-radius:12px; padding:12px 16px; flex:1; min-width:160px;}
+.fstep{display:flex; align-items:flex-start; gap:10px; background:var(--tint); border:1px solid var(--line); border-radius:12px; padding:14px 16px; flex:1; min-width:160px;}
 .fstep-n{width:26px; height:26px; flex-shrink:0; border-radius:8px; background:var(--blue); color:#fff; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center;}
 .fstep b{font-family:'Plus Jakarta Sans'; font-weight:600; font-size:13px; color:var(--navy); display:block; line-height:1.15;}
 .fstep i{font-style:normal; font-size:11px; color:var(--muted);}
@@ -419,31 +452,88 @@ section[id]{scroll-margin-top:84px;}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">O achado central</span>
-      <h2>A receptividade não segue a maturidade —<br>ela é alta <span class="accent">em todo o espectro</span></h2>
-      <p>Cada nó é uma prefeitura, posicionada pela maturidade em processos. A cor mostra a receptividade; o selo azul marca quem pediu para ser piloto.</p>
+      <h2>A necessidade de automação é alta <span class="accent">em todo o espectro de maturidade</span></h2>
+      <p>O que decide se uma prefeitura precisa de fluxos automatizados agora não é o quão avançada ela já é hoje — é a urgência que ela mesma relatou para os próximos 12 meses.</p>
     </div>
-    <div class="spectrum rise">
-      <div class="spec-legend">
-        <i><span class="sw sw5"></span> 5/5</i>
-        <i><span class="sw sw4"></span> 4/5</i>
-        <i><span class="sw swp"></span> Piloto</i>
-      </div>
-      <div class="track">
-        <div class="axis"></div>
-        <div class="zdiv" style="left:22%"></div><div class="zdiv" style="left:46%"></div><div class="zdiv" style="left:80%"></div>
-        <div class="zone" style="left:11%">Baixa</div><div class="zone" style="left:34%">Média</div><div class="zone" style="left:63%">Alta</div><div class="zone" style="left:90%">Muito alta</div>
 
-        <div class="node r5 down" style="left:5%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Rio Bonito</span><br><span class="rc">5/5</span></span></div>
-        <div class="node r4 pilot up" style="left:26%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Ap. do Taboado</span><br><span class="rc">4/5</span> <span class="tag">PILOTO</span></span></div>
-        <div class="node r4 down" style="left:37%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Marília</span><br><span class="rc">4/5</span></span></div>
-        <div class="node r5 up" style="left:47%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Santa Rosa V.</span><br><span class="rc">5/5</span></span></div>
-        <div class="node r4 down" style="left:60%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Taubaté</span><br><span class="rc">4/5</span></span></div>
-        <div class="node r5 pilot up" style="left:69%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Brusque</span><br><span class="rc">5/5</span> <span class="tag">PILOTO</span></span></div>
-        <div class="node r5 pilot down" style="left:78%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Votuporanga</span><br><span class="rc">5/5</span> <span class="tag">PILOTO</span></span></div>
-        <div class="node r5 pilot up" style="left:88%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Montes Claros</span><br><span class="rc">5/5</span> <span class="tag">PILOTO</span></span></div>
-        <div class="node r5 down" style="left:95%"><span class="pt"></span><span class="stem"></span><span class="lbl"><span class="nm">Araraquara</span><br><span class="rc">5/5</span></span></div>
+    <div class="howread rise">
+      <div class="howread-item">
+        <div class="hr-k">Maturidade em processos</div>
+        <p>O quão estruturada a prefeitura já é hoje — de <b>Baixa</b> a <b>Muito alta</b>.</p>
       </div>
-      <div class="spec-note">Os quatro pilotos vão de <b>Média</b> a <b>Muito alta</b> — a demanda não se concentra só nos clientes mais técnicos.</div>
+      <div class="howread-item">
+        <div class="hr-k">Necessidade de automação (12 meses)</div>
+        <p>O quanto ela precisa de fluxos automatizados agora. É a informação principal — a barra do gráfico abaixo.</p>
+      </div>
+      <div class="howread-item">
+        <div class="hr-k">Nota de receptividade (ex.: 5/5)</div>
+        <p>Reação ao protótipo na validação ao vivo, atribuída pela equipe de UX. <b>5</b> = quer adotar imediatamente; <b>4</b> = quer adotar, com ressalvas. Nenhuma prefeitura ficou abaixo de 4/5.</p>
+      </div>
+    </div>
+
+    <div class="needchart rise">
+      <div class="need-legend">
+        <i><span class="sw sw-alta"></span> Necessidade alta</i>
+        <i><span class="sw sw-media"></span> Necessidade média</i>
+        <i><span class="need-pilot">PILOTO</span> pediu para começar</i>
+      </div>
+
+      <div class="need-row">
+        <div class="need-name">Montes Claros<span class="need-pilot">PILOTO</span></div>
+        <span class="need-mat">Maturidade: Muito alta</span>
+        <div class="need-track"><div class="need-bar alta" style="--w:94%"><span>Necessidade: Alta</span></div></div>
+        <span class="need-score r5">5/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Araraquara</div>
+        <span class="need-mat">Maturidade: Muito alta</span>
+        <div class="need-track"><div class="need-bar alta" style="--w:94%"><span>Necessidade: Alta</span></div></div>
+        <span class="need-score r5">5/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Brusque<span class="need-pilot">PILOTO</span></div>
+        <span class="need-mat">Maturidade: Alta</span>
+        <div class="need-track"><div class="need-bar alta" style="--w:94%"><span>Necessidade: Alta</span></div></div>
+        <span class="need-score r5">5/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Votuporanga<span class="need-pilot">PILOTO</span></div>
+        <span class="need-mat">Maturidade: Alta</span>
+        <div class="need-track"><div class="need-bar alta" style="--w:94%"><span>Necessidade: Alta</span></div></div>
+        <span class="need-score r5">5/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Taubaté</div>
+        <span class="need-mat">Maturidade: Alta</span>
+        <div class="need-track"><div class="need-bar alta" style="--w:94%"><span>Necessidade: Alta</span></div></div>
+        <span class="need-score r4">4/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Ap. do Taboado<span class="need-pilot">PILOTO</span></div>
+        <span class="need-mat">Maturidade: Média</span>
+        <div class="need-track"><div class="need-bar alta" style="--w:94%"><span>Necessidade: Alta</span></div></div>
+        <span class="need-score r4">4/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Rio Bonito</div>
+        <span class="need-mat">Maturidade: Baixa</span>
+        <div class="need-track"><div class="need-bar media" style="--w:56%"><span>Necessidade: Média</span></div></div>
+        <span class="need-score r5">5/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Santa Rosa do Viterbo</div>
+        <span class="need-mat">Maturidade: Média/Alta</span>
+        <div class="need-track"><div class="need-bar media" style="--w:56%"><span>Necessidade: Média</span></div></div>
+        <span class="need-score r5">5/5</span>
+      </div>
+      <div class="need-row">
+        <div class="need-name">Marília</div>
+        <span class="need-mat">Maturidade: Média</span>
+        <div class="need-track"><div class="need-bar media" style="--w:56%"><span>Necessidade: Média</span></div></div>
+        <span class="need-score r4">4/5</span>
+      </div>
+
+      <div class="need-conclusion">A necessidade de automação é <b>alta em todo o espectro de maturidade</b> — a demanda não depende de quão avançada a prefeitura é. O que trava a adoção é <b>cultura e recursos que ainda faltam</b>, não a falta de interesse.</div>
     </div>
   </div>
 </section>
@@ -461,7 +551,7 @@ section[id]{scroll-margin-top:84px;}
         <div class="fcard-top"><div class="icon">🔒</div><div class="sig"><i class="on"></i><i class="on"></i><i class="on"></i><small>ALTO</small></div></div>
         <h3>Processo sigiloso (PAD)</h3>
         <p>Processos disciplinares saem da 1Doc por falta de confidencialidade. Recorrente — e já no escopo do UNIQUE.</p>
-        <div class="who"><span class="strat">→ UNIQUE</span><span>Montes Claros</span><span>Araraquara</span><span>+ vários</span></div>
+        <div class="who"><span>Montes Claros</span><span>Araraquara</span><span>Rio Bonito</span></div>
       </div>
       <div class="fcard rise" style="animation-delay:.05s">
         <div class="fcard-top"><div class="icon">🔀</div><div class="sig"><i class="on"></i><i class="on"></i><i class="on"></i><small>ALTO</small></div></div>
@@ -479,7 +569,7 @@ section[id]{scroll-margin-top:84px;}
         <div class="fcard-top"><div class="icon">🧩</div><div class="sig"><i class="on"></i><i class="on"></i><i class="on"></i><small>ALTO</small></div></div>
         <h3>Fluxos pré-configurados</h3>
         <p>Chegar com fluxos prontos de outras prefeituras derruba a barreira de implantação em todos os portes.</p>
-        <div class="who"><span>5 clientes</span></div>
+        <div class="who"><span>Rio Bonito</span><span>Ap. do Taboado</span><span>Marília</span><span>Taubaté</span><span>Montes Claros</span></div>
       </div>
       <div class="fcard rise" style="animation-delay:.1s">
         <div class="fcard-top"><div class="icon">📌</div><div class="sig"><i class="on mid"></i><i class="on mid"></i><i></i><small>MÉDIO</small></div></div>
@@ -560,7 +650,7 @@ section[id]{scroll-margin-top:84px;}
       <div class="bridge-row rise"><div class="bcell dor"><div class="bk">Dor ouvida</div><div class="bt">Integração e assinatura (govbr) — promessas não cumpridas</div></div><div class="barrow">→</div><div class="bcell sol"><div class="bk">Entrega Unique</div><div class="bt">Assinatura Gov.br + APIs 1Doc</div></div></div>
       <div class="bridge-row rise"><div class="bcell dor"><div class="bk">Dor ouvida</div><div class="bt">Apensamento e visão unificada de processos</div></div><div class="barrow">→</div><div class="bcell sol"><div class="bk">Entrega Unique</div><div class="bt">Juntada e Desentranhamento</div></div></div>
       <div class="bridge-row rise"><div class="bcell dor"><div class="bk">Dor ouvida</div><div class="bt">Informalidade; falta de "cara de documento"</div></div><div class="barrow">→</div><div class="bcell sol"><div class="bk">Entrega Unique</div><div class="bt">Pasta Digital</div></div></div>
-      <div class="bridge-row rise"><div class="bcell dor"><div class="bk">Dor ouvida</div><div class="bt">Implantação difícil sem processos prontos</div></div><div class="barrow">→</div><div class="bcell sol"><div class="bk">Entrega Unique</div><div class="bt">Biblioteca com algoritmo de similaridade</div></div></div>
+      <div class="bridge-row rise"><div class="bcell dor"><div class="bk">Dor ouvida</div><div class="bt">Criar fluxos e fazer as automações funcionarem de verdade</div></div><div class="barrow">→</div><div class="bcell sol"><div class="bk">Entrega Unique</div><div class="bt">Editor de Fluxo + Automações (BOAT), com biblioteca de modelos prontos</div></div></div>
     </div>
   </div>
 </section>
